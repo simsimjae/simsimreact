@@ -105,3 +105,4 @@ oldVnode = patch(oldVnode, view('')); // 1. 가상돔을 realDOM에 바로 반�
 첫번째로 update함수가 실행되면 oldVnode에는 realDOM이 들어있다. 이때는, 이전 가상돔과 현재 가상돔을 비교해서 realDOM에 반영하는게 아니라 바로 newVnode가 realDOM에 반영된다.
 
 그리고 두번째로 update가 실행되면 이때는 oldVnode에는 patch에서 리턴된 이전 가상돔이 들어있기 때문에 이전 가상돔과 현재 가상돔을 비교한 뒤 변경된 부분을 realDOM에 반영한다.
+

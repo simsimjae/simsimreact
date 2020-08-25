@@ -1,0 +1,326 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>virtualDOM을 realDOM에 반영하기 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="createElement.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    simsimreact - 리액트 코어 클론
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="snabbdom.html">
+            
+                <a href="snabbdom.html">
+            
+                    
+                    Snabbdom 살펴보기
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="jsx.html">
+            
+                <a href="jsx.html">
+            
+                    
+                    JSX와 바벨
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="createElement.html">
+            
+                <a href="createElement.html">
+            
+                    
+                    virtualDOM 만들기
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5" data-path="reactDom.html">
+            
+                <a href="reactDom.html">
+            
+                    
+                    virtualDOM을 realDOM에 반영하기
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >virtualDOM을 realDOM에 반영하기</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="react-dom-&#xD749;&#xB0B4;&#xB0B4;&#xAE30;">react dom &#xD749;&#xB0B4;&#xB0B4;&#xAE30;</h1>
+<p><strong>&#xC544;&#xB798; &#xB0B4;&#xC6A9;&#xB4E4;&#xC740; src/simsimReactDOM.js&#xC5D0; &#xC791;&#xC131;&#xB418;&#xC5B4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</strong></p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> simsimReactDom = {
+  render : (virtualDom, realDom) =&gt; {
+      <span class="hljs-comment">// &#xC774;&#xACF3;&#xC5D0; &#xAC00;&#xC0C1;&#xB3D4;&#xC744; &#xB9AC;&#xC5BC;&#xB3D4;&#xC5D0; &#xBC18;&#xC601;&#xD558;&#xB294; &#xCF54;&#xB4DC;&#xB97C; &#xC791;&#xC131;&#xD569;&#xB2C8;&#xB2E4;.</span>
+  }
+};
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> simsimReactDom;
+</code></pre>
+<p>render&#xD568;&#xC218; &#xB0B4;&#xBD80;&#xB97C; &#xCC44;&#xC6B0;&#xAE30; &#xC804;&#xC5D0; <strong>snabbdom</strong>&#xC744; &#xCD08;&#xAE30;&#xD654; &#xD574;&#xC918;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.
+snabbdom&#xC758; &#xBAA8;&#xB4C8;&#xB4E4;&#xC740; &#xC77C;&#xC885;&#xC758; &#xD50C;&#xB7EC;&#xADF8;&#xC778;&#xC774;&#xB77C;&#xACE0; &#xC0DD;&#xAC01;&#xD558;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { init } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;snabbdom/build/package/init&apos;</span>;
+<span class="hljs-keyword">import</span> { propsModule } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;snabbdom/build/package/modules/props&apos;</span>;
+
+<span class="hljs-comment">// snabbdom&#xC5D0; props&#xBAA8;&#xB4C8;&#xC744; &#xBD99;&#xC5EC; &#xCD08;&#xAE30;&#xD654;&#xD568;.</span>
+<span class="hljs-comment">// &#xC774; &#xBAA8;&#xB4C8; &#xB355;&#xBD84;&#xC5D0; props&#xB97C; &#xAC00;&#xC9C4; &#xAC00;&#xC0C1;&#xB3D4;&#xC744; &#xB9CC;&#xB4E4; &#xC218; &#xC788;&#xAC8C; &#xB418;&#xC5C8;&#xC74C;.</span>
+<span class="hljs-keyword">const</span> reconcile = init([propsModule]);
+
+<span class="hljs-keyword">const</span> simsimReactDom = {
+    render: (virtualDom, realDom) =&gt; {
+        reconcile(realDom, virtualDom);
+    },
+};
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> simsimReactDom;
+</code></pre>
+<p>reconcile &#xD568;&#xC218;&#xB97C; &#xC2E4;&#xD589;&#xD558;&#xBA74; realDom&#xC5D0; virtualDom&#xC744; &#xBC18;&#xC601;&#xD569;&#xB2C8;&#xB2E4;.(patch)</p>
+<p>&#xC790; &#xC774;&#xC81C; &#xC6B0;&#xB9AC;&#xAC00; &#xB9CC;&#xB4E0; react dom&#xC73C;&#xB85C; &#xC5EC;&#xC9C0;&#xAECF; &#xB9CC;&#xB4E0; virtual DOM&#xC744; &#xC2E4;&#xC81C;&#xB85C; &#xD654;&#xBA74;&#xC5D0; &#xB80C;&#xB354;&#xB9C1; &#xD574;&#xBCFC;&#xAE4C;&#xC694;?</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">// file: src/index.js</span>
+<span class="hljs-comment">// QndReact needs to be in scope for JSX to work</span>
+<span class="hljs-keyword">import</span> QndReact <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./qnd-react&apos;</span>;
+<span class="hljs-keyword">import</span> QndReactDom <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./qnd-react-dom&apos;</span>;
+
+<span class="hljs-keyword">const</span> App = (
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;primary&quot;</span>&gt;</span>
+      QndReact is Quick and dirty react
+    <span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>It is about building your own React in 90 lines of JavsScript<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+);
+
+QndReactDom.render(App, <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&apos;root&apos;</span>));
+</code></pre>
+<p><img src="images/2020-08-25-23-16-44.png" alt=""></p>
+<p>&#xD654;&#xBA74;&#xC5D0; &#xC815;&#xC0C1;&#xC801;&#xC73C;&#xB85C; &#xB80C;&#xB354;&#xB9C1;&#xC774; &#xB418;&#xC5C8;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="createElement.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: virtualDOM 만들기">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"virtualDOM을 realDOM에 반영하기","level":"1.5","depth":1,"previous":{"title":"virtualDOM 만들기","level":"1.4","depth":1,"path":"createElement.md","ref":"createElement.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"reactDom.md","mtime":"2020-08-25T14:16:57.193Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-25T13:13:36.208Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
