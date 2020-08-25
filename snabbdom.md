@@ -86,7 +86,7 @@ function view(name) {
   return h('div', [
     h('input', {
       props: { type: 'text', placeholder: 'Type  your name' },
-      on   : { input: update }
+      on   : { input: update } // 2. input 이벤트가 발생하면
     }),
     h('hr'),
     h('div', 'Hello ' + name)
@@ -96,11 +96,11 @@ function view(name) {
 var oldVnode = document.getElementById('placeholder');
 
 function update(event) {
-  const newVnode = view(event.target.value);
-  oldVnode = patch(oldVnode, newVnode);
+  const newVnode = view(event.target.value); // 3. 입력된 문자를 가지고 가상돔을 만들고
+  oldVnode = patch(oldVnode, newVnode); // 4. 이전 가상돔과 현재 가상돔을 비교해서 realDOM에 반영한다.
 }
 
-oldVnode = patch(oldVnode, view(''));
+oldVnode = patch(oldVnode, view('')); // 1. 가상돔을 realDOM에 바로 반영
 ```
 첫번째로 update함수가 실행되면 oldVnode에는 realDOM이 들어있다. 이때는, 이전 가상돔과 현재 가상돔을 비교해서 realDOM에 반영하는게 아니라 바로 newVnode가 realDOM에 반영된다.
 

@@ -221,7 +221,7 @@ setInterval( () =&gt; {
   <span class="hljs-keyword">return</span> h(<span class="hljs-string">&apos;div&apos;</span>, [
     h(<span class="hljs-string">&apos;input&apos;</span>, {
       props: { type: <span class="hljs-string">&apos;text&apos;</span>, placeholder: <span class="hljs-string">&apos;Type  your name&apos;</span> },
-      on   : { input: update }
+      on   : { input: update } <span class="hljs-comment">// 2. input &#xC774;&#xBCA4;&#xD2B8;&#xAC00; &#xBC1C;&#xC0DD;&#xD558;&#xBA74;</span>
     }),
     h(<span class="hljs-string">&apos;hr&apos;</span>),
     h(<span class="hljs-string">&apos;div&apos;</span>, <span class="hljs-string">&apos;Hello &apos;</span> + name)
@@ -231,11 +231,11 @@ setInterval( () =&gt; {
 <span class="hljs-keyword">var</span> oldVnode = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&apos;placeholder&apos;</span>);
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">update</span>(<span class="hljs-params">event</span>) </span>{
-  <span class="hljs-keyword">const</span> newVnode = view(event.target.value);
-  oldVnode = patch(oldVnode, newVnode);
+  <span class="hljs-keyword">const</span> newVnode = view(event.target.value); <span class="hljs-comment">// 3. &#xC785;&#xB825;&#xB41C; &#xBB38;&#xC790;&#xB97C; &#xAC00;&#xC9C0;&#xACE0; &#xAC00;&#xC0C1;&#xB3D4;&#xC744; &#xB9CC;&#xB4E4;&#xACE0;</span>
+  oldVnode = patch(oldVnode, newVnode); <span class="hljs-comment">// 4. &#xC774;&#xC804; &#xAC00;&#xC0C1;&#xB3D4;&#xACFC; &#xD604;&#xC7AC; &#xAC00;&#xC0C1;&#xB3D4;&#xC744; &#xBE44;&#xAD50;&#xD574;&#xC11C; realDOM&#xC5D0; &#xBC18;&#xC601;&#xD55C;&#xB2E4;.</span>
 }
 
-oldVnode = patch(oldVnode, view(<span class="hljs-string">&apos;&apos;</span>));
+oldVnode = patch(oldVnode, view(<span class="hljs-string">&apos;&apos;</span>)); <span class="hljs-comment">// 1. &#xAC00;&#xC0C1;&#xB3D4;&#xC744; realDOM&#xC5D0; &#xBC14;&#xB85C; &#xBC18;&#xC601;</span>
 </code></pre>
 <p>&#xCCAB;&#xBC88;&#xC9F8;&#xB85C; update&#xD568;&#xC218;&#xAC00; &#xC2E4;&#xD589;&#xB418;&#xBA74; oldVnode&#xC5D0;&#xB294; realDOM&#xC774; &#xB4E4;&#xC5B4;&#xC788;&#xB2E4;. &#xC774;&#xB54C;&#xB294;, &#xC774;&#xC804; &#xAC00;&#xC0C1;&#xB3D4;&#xACFC; &#xD604;&#xC7AC; &#xAC00;&#xC0C1;&#xB3D4;&#xC744; &#xBE44;&#xAD50;&#xD574;&#xC11C; realDOM&#xC5D0; &#xBC18;&#xC601;&#xD558;&#xB294;&#xAC8C; &#xC544;&#xB2C8;&#xB77C; &#xBC14;&#xB85C; newVnode&#xAC00; realDOM&#xC5D0; &#xBC18;&#xC601;&#xB41C;&#xB2E4;.</p>
 <p>&#xADF8;&#xB9AC;&#xACE0; &#xB450;&#xBC88;&#xC9F8;&#xB85C; update&#xAC00; &#xC2E4;&#xD589;&#xB418;&#xBA74; &#xC774;&#xB54C;&#xB294; oldVnode&#xC5D0;&#xB294; patch&#xC5D0;&#xC11C; &#xB9AC;&#xD134;&#xB41C; &#xC774;&#xC804; &#xAC00;&#xC0C1;&#xB3D4;&#xC774; &#xB4E4;&#xC5B4;&#xC788;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xC774;&#xC804; &#xAC00;&#xC0C1;&#xB3D4;&#xACFC; &#xD604;&#xC7AC; &#xAC00;&#xC0C1;&#xB3D4;&#xC744; &#xBE44;&#xAD50;&#xD55C; &#xB4A4; &#xBCC0;&#xACBD;&#xB41C; &#xBD80;&#xBD84;&#xC744; realDOM&#xC5D0; &#xBC18;&#xC601;&#xD55C;&#xB2E4;.</p>
@@ -278,7 +278,7 @@ oldVnode = patch(oldVnode, view(<span class="hljs-string">&apos;&apos;</span>));
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"description":"Virtual DOM 라이브러리인 Snabbdom에 대해 살펴봅시다.","title":"Snabbdom 살펴보기","level":"1.2","depth":1,"previous":{"title":"simsimreact - 리액트 코어 클론","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"snabbdom.md","mtime":"2020-08-25T12:04:42.686Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-25T11:41:25.948Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"Virtual DOM 라이브러리인 Snabbdom에 대해 살펴봅시다.","title":"Snabbdom 살펴보기","level":"1.2","depth":1,"previous":{"title":"simsimreact - 리액트 코어 클론","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"snabbdom.md","mtime":"2020-08-25T12:08:33.165Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-25T11:41:25.948Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
