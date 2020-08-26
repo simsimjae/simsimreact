@@ -34,23 +34,6 @@ reconcile 함수를 실행하면 realDom에 virtualDom을 반영합니다.(patch
 
 자 이제 우리가 만든 react dom으로 여지껏 만든 virtual DOM을 실제로 화면에 렌더링 해볼까요?
 
-```javascript
-// file: src/index.js
-// QndReact needs to be in scope for JSX to work
-import QndReact from './qnd-react';
-import QndReactDom from './qnd-react-dom';
-
-const App = (
-  <div>
-    <h1 className="primary">
-      QndReact is Quick and dirty react
-    </h1>
-    <p>It is about building your own React in 90 lines of JavsScript</p>
-  </div>
-);
-
-QndReactDom.render(App, document.getElementById('root'));
-```
 ![](images/2020-08-25-23-16-44.png)
 
 화면에 정상적으로 렌더링이 되었습니다.
